@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <unistd.h>
+#include "nodo.h"
 using namespace std;
 
 void Disco::leerArchivo(){
@@ -23,6 +24,31 @@ void Disco::leerArchivo(){
     }
     string palabra="0";
     cout<<"*********Consulta Datos********\n\n";
+
+    cout<<"Ruta: "<<"\t\t"<<"Operacion: "<<"\n";
+
+  
+
+    while(getline(archivo,palabra,' ')){
+        nodo*prueba=0;
+        const char*b=palabra.c_str();
+        insertar(&prueba,b);
+       // cout<<palabra<<"\t\t";
+        sleep(2);
+    }
+
+    archivo.close();
+    imprimir(&prueba);
+}
+//function to mount gcc.trace
+void Disco::cargarArchivo(){
+    ifstream archivo("gcc.trace",ios::in);
+    if(!archivo){
+        cout<<"Error al abrir el archivo!"<<endl;
+        return;
+    }
+    string palabra="0";
+    cout<<"*********Carga Datos********\n\n";
 
     cout<<"Ruta: "<<"\t\t"<<"Operacion: "<<"\n";
 
