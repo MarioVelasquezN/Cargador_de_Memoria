@@ -9,7 +9,8 @@ struct metadata{
 class Disco{
 public:
     metadata m;
-    void leerArchivo();
+    void leerArchivogcc();
+    void leerArchivobzip();
     void cargarArchivo();
     
     void escribirArchivo();
