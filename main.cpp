@@ -6,5 +6,5 @@ using namespace std;
 
 int main(){
     Disco d;
-    d.leerArchivo();
+    d.leerArchivogcc();
 }
