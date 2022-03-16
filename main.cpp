@@ -6,6 +6,8 @@ using namespace std;
 
 int main(){
     Disco d;
+    //d.leerArchivogcc();
+   
     int op;
     do
     {
@@ -29,6 +31,7 @@ int main(){
 
         case 3:
             cout<<"Aqui va lo de marco"<<endl;
+             d.cargarArchivo();
             break;
 
         case 4:
