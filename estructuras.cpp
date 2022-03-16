@@ -5,7 +5,7 @@
 #include <unistd.h>
 using namespace std;
 
-void Disco::leerArchivo(){
+void Disco::leerArchivogcc(){
     //ifstream para leer archivos de texto
     ifstream archivo("gcc.trace",ios::in);
 
@@ -17,6 +17,27 @@ void Disco::leerArchivo(){
     // archivo.close();
 
     // system("pause");
+    if(!archivo){
+        cout<<"Error al abrir el archivo!"<<endl;
+        return;
+    }
+    string palabra="0";
+    cout<<"*********Consulta Datos********\n\n";
+
+    cout<<"Ruta: "<<"\t\t"<<"Operacion: "<<"\n";
+
+    while(getline(archivo,palabra,' ')){
+        cout<<palabra<<"\t\t";
+        sleep(2);
+    }
+
+    archivo.close();
+}
+
+void Disco::leerArchivobzip(){
+    
+    ifstream archivo("bzip.trace",ios::in);
+
     if(!archivo){
         cout<<"Error al abrir el archivo!"<<endl;
         return;
