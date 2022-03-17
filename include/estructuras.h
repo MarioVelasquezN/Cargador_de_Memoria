@@ -2,6 +2,8 @@
 #define ESTRUCTURAS_H
 #include <string>
 #include <vector>
+#include <windows.h>
+#include <cstdlib>
 using namespace std;
 struct metadata{
     char dato[7];
@@ -22,6 +24,7 @@ public:
     void leerArchivobzip();
     void cargarArchivo();
     void escribirArchivo();
+    void writeDir();
 };
 
 #endif
