@@ -4,11 +4,14 @@
 #include <string>
 #include <unistd.h>
 #include <vector>
+#include <stdio.h>
+#include <windows.h>
+#include <cstdlib>
 using namespace std;
 
 void Disco::leerArchivogcc(){
     //ifstream para leer archivos de texto
-    ifstream archivo("gcc.trace",ios::in);
+    ifstream archivo("src\\gcc.trace",ios::in);
 
     // while(!archivo.eof()){
     //     archivo>>m.dato>>m.operacion;
@@ -29,7 +32,7 @@ void Disco::leerArchivogcc(){
 
     while(getline(archivo,palabra,' ')){
         cout<<palabra<<"\t\t";
-        sleep(2);
+        Sleep(2);
     }
 
     archivo.close();
@@ -50,7 +53,7 @@ void Disco::leerArchivobzip(){
 
     while(getline(archivo,palabra,' ')){
         cout<<palabra<<"\t\t";
-        sleep(2);
+        Sleep(2);
     }
 
     archivo.close();
@@ -71,7 +74,7 @@ void Disco::cargarArchivo()
     auto t1 = high_resolution_clock::now();
    
      //ifstream para leer archivos de texto
-    ifstream archivo("gcc.trace",ios::in);
+    ifstream archivo("src\\gcc.trace",ios::in);
 
     if(!archivo){
         cout<<"Error al abrir el archivo!"<<endl;
@@ -79,17 +82,18 @@ void Disco::cargarArchivo()
     }
     string palabra="0";
     cout<<"*********Cargando Datos********\n\n";
-
+       cout<<"Cargando datos..."<<"\n";
     while(getline(archivo,palabra,'\n')){
         //cout<<palabra<<"\t\t";
         vector1.push_back(palabra);
+        if(vector1.size()==500000){
+            cout<<"50%"<<"\n";
+        }
     }
+    cout<<"100%"<<"\n";
     archivo.close();
-
-      for (decltype(vector1.size()) i = 0; i <= vector1.size() - 1; i++)
-    {
-        cout << vector1[i] << endl;
-    }
+    cout<<"Cargandos exitosamente"<<"\n";
+    
       auto t2 = high_resolution_clock::now();
 
     /* Getting number of milliseconds as an integer. */
@@ -98,6 +102,58 @@ void Disco::cargarArchivo()
     /* Getting number of milliseconds as a double. */
     duration<double, std::milli> ms_double = t2 - t1;
 
-    std::cout << ms_double.count()/1000/60 << " minutos\n";
+    std::cout << ms_double.count()/1000 << " segundos\n";
 
+}
+void Disco::buscar(){
+    int pos;
+    cout<<"Size: "<<vector1.size()<<endl;
+    cout<<"Ingrese el dato a buscar: ";
+    cin>>pos;
+    bool encontrado=false;
+    char* dato=new char[8];
+    string strData="";
+    for(int i=0;i<vector1.size();i++){
+        if(i==pos){
+            cout<<"El dato se encuentra en la posicion: "<<i<<endl;
+            cout<<vector1[i]<<endl;
+            encontrado=true;
+            for(int j=0;j<8;j++){
+                dato[j]=vector1[pos][j];
+            }
+             for(int j=0;j<8;j++){
+                  strData+=dato[j];
+            }
+          cout<<strData<<endl;
+            break;
+        }
+    }
+    if(!encontrado){
+        cout<<"El dato no se encuentra en el vector"<<endl;
+    }
+}
+void Disco::writeDir(){
+    int pos;
+    cout<<"Size: "<<vector1.size()<<endl;
+    cout<<"Ingrese el dato a buscar: ";
+    cin>>pos;
+    bool encontrado=false;
+    for(int i=0;i<vector1.size();i++){
+        if(i==pos){
+            cout<<"El dato se encuentra en la posicion: "<<i<<endl;
+            cout<<vector1[i]<<endl;
+            encontrado=true;
+            char w = 'W';
+            cout<<"wtf: "<<vector1[i][9]<<endl;
+            if(w==vector1[i][9]){
+                cout<<"Se modifico el valor de esa dir"<<endl;
+                vector1[i]="00000000 M";
+                cout<<"\n En la direccion: "<<&vector1[i]<<endl;
+            }
+            break;
+        }
+    }
+    if(!encontrado){
+        cout<<"El dato no se encuentra en el vector"<<endl;
+    }
 }

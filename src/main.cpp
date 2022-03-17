@@ -7,15 +7,19 @@ using namespace std;
 int main(){
     Disco d;
     //d.leerArchivogcc();
+    d.cargarArchivo();
    
     int op;
     do
     {
+
         cout<<"Funciones Funcionales"<<endl;
-        cout<<"1.Leer archivos de gcc.trace"<<endl;
-        cout<<"2.leer archivos de bzip.trace"<<endl;
-        cout<<"3. Aqui va el cargar archivos de marco"<<endl;
-        cout<<"4.aqui va el hastable de Rodrigo"<<endl;
+        cout<<"1.\tLeer archivos de gcc.trace"<<endl;
+        cout<<"2.\tleer archivos de bzip.trace"<<endl;
+        cout<<"3.\tBuscar"<<endl;
+        cout<<"4.\taqui va el hastable de Rodrigo"<<endl;
+        cout<<"5.\tSalir"<<endl;
+
         cout<<"Selecciones su opcion: "<<endl;
         cin>>op;
 
@@ -28,24 +32,31 @@ int main(){
         case 2:
             d.leerArchivobzip();
             break;
-
         case 3:
-            cout<<"Aqui va lo de marco"<<endl;
-             d.cargarArchivo();
+        {
+            int opcion;
+            cout<<"\n1. read\n2. write "<<endl;
+            cin>>opcion;
+            if(opcion==1){
+                d.buscar();
+            }
+            else if(opcion==2){
+                d.writeDir();
+            }
+            else{
+                cout<<"Opcion no valida"<<endl;
+            }
             break;
-
+        }
         case 4:
             cout<<"Aqui lo de Rodrigo"<<endl;
             break;
-
         case 5:
             cout<<"Salir!!"<<endl;
             break;
-
+       
         default:
             break;
         }
-
     } while (op!=5);
-
 }

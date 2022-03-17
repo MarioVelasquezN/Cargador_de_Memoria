@@ -1,5 +1,9 @@
 {
-    "files.associations": {
-        "ostream": "cpp"
-    }
+  "files.associations": {
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "chrono": "cpp",
+    "*.tcc": "cpp",
+    "string_view": "cpp"
+  }
 }
