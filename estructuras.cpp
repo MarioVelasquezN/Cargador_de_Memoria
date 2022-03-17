@@ -79,17 +79,19 @@ void Disco::cargarArchivo()
     }
     string palabra="0";
     cout<<"*********Cargando Datos********\n\n";
-
+       cout<<"Cargando datos..."<<"\n";
     while(getline(archivo,palabra,'\n')){
         //cout<<palabra<<"\t\t";
         vector1.push_back(palabra);
+        if(vector1.size()==500000){
+            cout<<"50%"<<"\n";
+            break;
+        }
     }
+    cout<<"100%"<<"\n";
     archivo.close();
-
-      for (decltype(vector1.size()) i = 0; i <= vector1.size() - 1; i++)
-    {
-        cout << vector1[i] << endl;
-    }
+    cout<<"Cargandos exitosamente"<<"\n";
+    
       auto t2 = high_resolution_clock::now();
 
     /* Getting number of milliseconds as an integer. */

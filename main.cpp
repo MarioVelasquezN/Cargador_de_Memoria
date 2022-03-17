@@ -12,11 +12,12 @@ int main(){
     do
     {
         cout<<"Funciones Funcionales"<<endl;
-        cout<<"1.Leer archivos de gcc.trace"<<endl;
-        cout<<"2.leer archivos de bzip.trace"<<endl;
-        cout<<"3. Aqui va el cargar archivos de marco"<<endl;
-        cout<<"4.aqui va el hastable de Rodrigo"<<endl;
-        cout<<"Selecciones su opcion: "<<endl;
+        cout<<"1.\tLeer archivos de gcc.trace"<<endl;
+        cout<<"2.\tleer archivos de bzip.trace"<<endl;
+        cout<<"3.\tCargar a memoria"<<endl;
+        cout<<"4.\taqui va el hastable de Rodrigo"<<endl;
+        cout<<"5.\tSalir"<<endl;
+        cout<<"\t\tSelecciones su opcion: "<<endl;
         cin>>op;
 
         switch (op)
