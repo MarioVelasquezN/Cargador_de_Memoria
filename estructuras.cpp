@@ -111,7 +111,7 @@ void Disco::buscar(){
     for(int i=0;i<vector1.size();i++){
         if(i==pos){
             cout<<"El dato se encuentra en la posicion: "<<i<<endl;
-            cout<<vector1[i]<<endl;
+            cout<<&vector1[i]<<endl;
             encontrado=true;
             break;
         }
