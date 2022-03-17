@@ -16,8 +16,10 @@ int main(){
         cout<<"2.\tleer archivos de bzip.trace"<<endl;
         cout<<"3.\tCargar a memoria"<<endl;
         cout<<"4.\taqui va el hastable de Rodrigo"<<endl;
-        cout<<"5.\tSalir"<<endl;
-        cout<<"\t\tSelecciones su opcion: "<<endl;
+        cout<<"5.\tBuscar Elemento"<<endl;
+        cout<<"6.\tSalir"<<endl;
+
+        cout<<"Selecciones su opcion: "<<endl;
         cin>>op;
 
         switch (op)
@@ -31,22 +33,27 @@ int main(){
             break;
 
         case 3:
+        {
             cout<<"Aqui va lo de marco"<<endl;
              d.cargarArchivo();
             break;
-
+        }
         case 4:
             cout<<"Aqui lo de Rodrigo"<<endl;
             break;
-
         case 5:
-            cout<<"Salir!!"<<endl;
-            break;
-
-        default:
+        {
+            cout<<"Buscar Elemento"<<endl;
+            d.buscar();
             break;
         }
 
-    } while (op!=5);
-
+        case 6:
+            cout<<"Salir!!"<<endl;
+            break;
+       
+        default:
+            break;
+        }
+    } while (op!=6);
 }

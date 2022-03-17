@@ -85,7 +85,6 @@ void Disco::cargarArchivo()
         vector1.push_back(palabra);
         if(vector1.size()==500000){
             cout<<"50%"<<"\n";
-            break;
         }
     }
     cout<<"100%"<<"\n";
@@ -102,4 +101,22 @@ void Disco::cargarArchivo()
 
     std::cout << ms_double.count()/1000/60 << " minutos\n";
 
+}
+void Disco::buscar(){
+    int pos;
+    cout<<"Size: "<<vector1.size()<<endl;
+    cout<<"Ingrese el dato a buscar: ";
+    cin>>pos;
+    bool encontrado=false;
+    for(int i=0;i<vector1.size();i++){
+        if(i==pos){
+            cout<<"El dato se encuentra en la posicion: "<<i<<endl;
+            cout<<vector1[i]<<endl;
+            encontrado=true;
+            break;
+        }
+    }
+    if(!encontrado){
+        cout<<"El dato no se encuentra en el vector"<<endl;
+    }
 }
