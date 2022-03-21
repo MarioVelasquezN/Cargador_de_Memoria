@@ -154,6 +154,12 @@ void Disco::writeDir(){
     cout<<"\nCargado a hashtable exitoso total de valores: "<<ht.Size()<<endl;
 }*/
 void Disco::printAll(){
+     using std::chrono::high_resolution_clock;
+    using std::chrono::duration_cast;
+    using std::chrono::duration;
+    using std::chrono::milliseconds;
+
+    auto t1 = high_resolution_clock::now();
      const char separator    = '\t';
     const int nameWidth     = 6;
     const int numWidth      = 8;
@@ -161,11 +167,21 @@ void Disco::printAll(){
     for(int i=0;i<vector1.size();i++){
          cout << left << setw(nameWidth) << setfill(separator) << "  "+vector1[i];
          cont++;
-         if(cont==10){
+         if(cont==9){
              cout<<endl;
              cont=0;
          }
     }
+    
+    auto t2 = high_resolution_clock::now();
+
+    /* Getting number of milliseconds as an integer. */
+    auto ms_int = duration_cast<milliseconds>(t2 - t1);
+
+    /* Getting number of milliseconds as a double. */
+    duration<double, std::milli> ms_double = t2 - t1;
+
+    std::cout << ms_double.count()/1000 << " segundos\n";
 }
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */

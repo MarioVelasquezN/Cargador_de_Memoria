@@ -4,6 +4,7 @@
     "iostream": "cpp",
     "chrono": "cpp",
     "*.tcc": "cpp",
-    "string_view": "cpp"
+    "string_view": "cpp",
+    "vector": "cpp"
   }
 }
