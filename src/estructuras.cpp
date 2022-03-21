@@ -7,20 +7,13 @@
 #include <stdio.h>
 #include <windows.h>
 #include <cstdlib>
+#include <iomanip>
 using namespace std;
 
 void Disco::leerArchivogcc(){
     //ifstream para leer archivos de texto
     ifstream archivo("src\\gcc.trace",ios::in);
 
-    // while(!archivo.eof()){
-    //     archivo>>m.dato>>m.operacion;
-    //     cout<<m.dato<<endl;
-    //     cout<<m.operacion<<endl;
-    // }
-    // archivo.close();
-
-    // system("pause");
     if(!archivo){
         cout<<"Error al abrir el archivo!"<<endl;
         return;
@@ -32,7 +25,6 @@ void Disco::leerArchivogcc(){
 
     while(getline(archivo,palabra,' ')){
         cout<<palabra<<"\t\t";
-        Sleep(2);
     }
 
     archivo.close();
@@ -40,7 +32,7 @@ void Disco::leerArchivogcc(){
 
 void Disco::leerArchivobzip(){
     
-    ifstream archivo("bzip.trace",ios::in);
+    ifstream archivo("src\\bzip.trace",ios::in);
 
     if(!archivo){
         cout<<"Error al abrir el archivo!"<<endl;
@@ -53,14 +45,11 @@ void Disco::leerArchivobzip(){
 
     while(getline(archivo,palabra,' ')){
         cout<<palabra<<"\t\t";
-        Sleep(2);
     }
 
     archivo.close();
 }
 #include <chrono>
-
-/* Only needed for the sake of this example. */
 #include <iostream>
 #include <thread>
 
@@ -124,7 +113,7 @@ void Disco::buscar(){
              for(int j=0;j<8;j++){
                   strData+=dato[j];
             }
-          cout<<strData<<endl;
+          //cout<<strData<<endl;
             break;
         }
     }
@@ -156,4 +145,62 @@ void Disco::writeDir(){
     if(!encontrado){
         cout<<"El dato no se encuentra en el vector"<<endl;
     }
+}
+
+/*void Disco::hashTable(){
+     for(int i = 0; i < vector1.size(); i++)
+        ht.insertElement(i, vector1[i]);
+
+    cout<<"\nCargado a hashtable exitoso total de valores: "<<ht.Size()<<endl;
+}*/
+void Disco::printAll(){
+     const char separator    = '\t';
+    const int nameWidth     = 6;
+    const int numWidth      = 8;
+    int cont=0;
+    for(int i=0;i<vector1.size();i++){
+         cout << left << setw(nameWidth) << setfill(separator) << "  "+vector1[i];
+         cont++;
+         if(cont==10){
+             cout<<endl;
+             cont=0;
+         }
+    }
+}
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+void Disco::simular()
+{
+    cout<<"\nIngrese La cantidad de veces que desea simular: ";
+    int cant;
+    cin>>cant;
+    int random;
+    const char separator    = ' ';
+    const int nameWidth     = 6;
+    const int numWidth      = 8;
+     int cont=0;
+    for (int i = 0; i < cant; i++)
+    {
+         random = rand() % vector1.size() + 1;
+         cout<<"[Pos: ";
+         cout << left << setw(nameWidth) << setfill(separator) << random;
+         cout << left << setw(nameWidth) << setfill(separator) <<"Dir: ";
+         cout << left << setw(nameWidth) << setfill(separator) << vector1[random];
+         cout<<"]";
+        
+         cont++;
+         if(i==cant-1){
+             cout<<endl;
+             cont=0;
+             break;
+         }
+         if(cont==3){
+             cout<<endl<<endl;
+             cont=0;
+         }else{
+             cout<<"->";
+         }
+      
+    }
+    cout<<endl<<endl;
 }

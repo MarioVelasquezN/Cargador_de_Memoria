@@ -8,6 +8,7 @@ int main(){
     Disco d;
     //d.leerArchivogcc();
     d.cargarArchivo();
+    //d.hashTable();
    
     int op;
     do
@@ -17,8 +18,9 @@ int main(){
         cout<<"1.\tLeer archivos de gcc.trace"<<endl;
         cout<<"2.\tleer archivos de bzip.trace"<<endl;
         cout<<"3.\tBuscar"<<endl;
-        cout<<"4.\taqui va el hastable de Rodrigo"<<endl;
-        cout<<"5.\tSalir"<<endl;
+        cout<<"4.\tPrint all"<<endl;
+        cout<<"5.\tSimular"<<endl;
+        cout<<"6.\tSalir"<<endl;
 
         cout<<"Selecciones su opcion: "<<endl;
         cin>>op;
@@ -49,14 +51,17 @@ int main(){
             break;
         }
         case 4:
-            cout<<"Aqui lo de Rodrigo"<<endl;
+            d.printAll();
             break;
         case 5:
+            d.simular();
+            break;
+        case 6:
             cout<<"Salir!!"<<endl;
             break;
        
         default:
             break;
         }
-    } while (op!=5);
+    } while (op!=6);
 }
