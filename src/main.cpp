@@ -14,7 +14,7 @@ int main(){
     do
     {
 
-        cout<<"Ayudame polipinga pls Funciones Funcionales"<<endl;
+        cout<<"Funciones Funcionales"<<endl;
         cout<<"1.\tLeer archivos de gcc.trace"<<endl;
         cout<<"2.\tleer archivos de bzip.trace"<<endl;
         cout<<"3.\tBuscar"<<endl;
