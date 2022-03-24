@@ -35,7 +35,7 @@ void Disco::leerArchivobzip(){
     ifstream archivo("src\\bzip.trace",ios::in);
 
     if(!archivo){
-        cout<<"Error al abrir el archivo!"<<endl;
+        cout<<"Problemas al abrir el archivo!"<<endl;
         return;
     }
     string palabra="0";
