@@ -43,7 +43,7 @@ public:
   void printAll(){
     // Traverse each index:
     for(int i = 0; i < total_elements; i++){
-      cout << "Index " << i << ": ";
+      cout << "Index is: " << i << ": ";
 
     cout << endl;
     }
